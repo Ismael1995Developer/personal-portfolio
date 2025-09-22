@@ -1,7 +1,6 @@
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
-import { Badge } from "@/components/common/Badge";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 export function Hero() {
