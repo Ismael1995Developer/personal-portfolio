@@ -15,7 +15,16 @@ export const projects: Project[] = [
     titulo: "UltraTech Sistemas",
     resumo:
       "Sistema de gestão empresarial completo com módulos de vendas, estoque, financeiro e relatórios.",
-    stack: ["PHP", "MySQL", "Bootstrap", "JavaScript", "jQuery"],
+    stack: [
+      "Next.js",
+      "React",
+      "CSS3",
+      "JavaScript",
+      "Tailwind CSS",
+      "TypeScript",
+      "SEO",
+    ],
+    imagem: "/projetos/ultratech-sistemas.PNG",
     demo: "https://www.ultratechsistemas.com.br",
     resultado: "Sistema em produção com 50+ usuários ativos",
   },
@@ -24,7 +33,16 @@ export const projects: Project[] = [
     titulo: "Karine Paulino Advocacia",
     resumo:
       "Site institucional para escritório de advocacia com design moderno e formulários de contato otimizados.",
-    stack: ["WordPress", "PHP", "CSS3", "JavaScript", "SEO"],
+    stack: [
+      "Next.js",
+      "React",
+      "CSS3",
+      "JavaScript",
+      "Tailwind CSS",
+      "TypeScript",
+      "SEO",
+    ],
+    imagem: "/projetos/karine-advocacia.svg",
     demo: "https://karinepaulinoadvocacia.com.br",
     resultado: "Aumento de 200% nas consultas online",
   },
@@ -33,7 +51,16 @@ export const projects: Project[] = [
     titulo: "Emagreça Comigo",
     resumo:
       "Landing page para programa de emagrecimento com foco em conversão e engajamento do usuário.",
-    stack: ["WordPress", "PHP", "CSS3", "JavaScript", "Marketing Digital"],
+    stack: [
+      "Next.js",
+      "React",
+      "CSS3",
+      "JavaScript",
+      "Tailwind CSS",
+      "TypeScript",
+      "SEO",
+    ],
+    imagem: "/projetos/emagreca-comigo.svg",
     demo: "https://www.emagrecacomigo.com.br",
     resultado: "Taxa de conversão 15% e alta retenção",
   },
@@ -43,7 +70,7 @@ export const projects: Project[] = [
     resumo:
       "Portfólio pessoal desenvolvido com Next.js 15, TypeScript e Tailwind CSS com foco em performance.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "React", "SEO"],
-    github: "https://github.com/ismael-correia/portfolio-nextjs",
+    imagem: "/projetos/portfolio-nextjs.svg",
     demo: "https://ismael-correia.dev",
     resultado: "Performance 100 no Lighthouse",
   },
@@ -52,7 +79,9 @@ export const projects: Project[] = [
     titulo: "Sistema de Gestão de Vendas",
     resumo:
       "Sistema web para controle de vendas, clientes e relatórios com dashboard interativo.",
-    stack: ["PHP", "MySQL", "Bootstrap", "Chart.js", "AJAX"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "React", "SEO"],
+    imagem: "/projetos/sistema-vendas.svg",
+    demo: "https://demo-sistema-vendas.ismael-correia.dev",
     resultado: "Redução de 60% no tempo de gestão",
   },
   {
@@ -60,7 +89,9 @@ export const projects: Project[] = [
     titulo: "Landing Page de Alta Conversão",
     resumo:
       "Landing page otimizada para conversão com formulários inteligentes e design responsivo.",
-    stack: ["HTML5", "CSS3", "JavaScript", "PHP", "Analytics"],
+    stack: ["JavaScript", "Tailwind CSS", "TypeScript"],
+    imagem: "/projetos/landing-conversao.svg",
+    demo: "https://demo-landing-conversao.ismael-correia.dev",
     resultado: "Taxa de conversão 25% acima da média",
   },
 ];

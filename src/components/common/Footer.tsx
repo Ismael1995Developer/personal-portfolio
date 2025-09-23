@@ -4,8 +4,8 @@ import { Button } from "./Button";
 
 const footerLinks = {
   servicos: [
-    { name: "Landing Pages", href: "#loja" },
-    { name: "Manutenção de Sites", href: "#loja" },
+    { name: "Landing Pages", href: "#desenvolvimento" },
+    { name: "Manutenção de Sites", href: "#desenvolvimento" },
     { name: "Marketing Digital", href: "#marketing" },
     { name: "Projetos Fotovoltaicos", href: "#engenharia" },
     { name: "Projetos Elétricos", href: "#engenharia" },
@@ -17,9 +17,8 @@ const footerLinks = {
     { name: "Contato", href: "#contato" },
   ],
   legal: [
-    { name: "Política de Privacidade", href: "/privacidade" },
-    { name: "Termos de Uso", href: "/termos" },
-    { name: "Cookies", href: "/cookies" },
+    { name: "Política de Privacidade", href: "/politica-privacidade" },
+    { name: "Termos de Uso", href: "/termos-de-uso" },
   ],
 };
 
@@ -140,7 +139,8 @@ export function Footer() {
         <div className="border-t border-zinc-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-zinc-400 text-sm mb-4 md:mb-0">
-              © 2024 José Ismael Correia. Todos os direitos reservados.
+              © {new Date().getFullYear()} José Ismael Correia. Todos os
+              direitos reservados.
             </div>
             <div className="flex space-x-6">
               {footerLinks.legal.map((link) => (

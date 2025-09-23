@@ -51,7 +51,7 @@ export function Header() {
           <div className="hidden md:flex md:items-center md:space-x-4">
             <Button variant="outline" size="sm" asChild>
               <Link
-                href="https://wa.me/554999961487"
+                href="https://wa.me/555499961487"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -105,7 +105,7 @@ export function Header() {
                 asChild
               >
                 <Link
-                  href="https://wa.me/554999961487"
+                  href="https://wa.me/555499961487"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -17,14 +17,14 @@ export function Hero() {
         }}
       />
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 pt-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
             <div className="text-center lg:text-left">
               {/* Main Headline */}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 animate-fade-in-up leading-tight">
-                <span className="block">Desenvolvimento Front-end</span>
+                <span className="block">Desenvolvimento Web</span>
                 <span className="block">com foco em performance</span>
                 <span className="block">e conversão</span>
               </h1>

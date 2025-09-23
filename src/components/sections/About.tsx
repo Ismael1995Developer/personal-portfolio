@@ -13,6 +13,10 @@ const skills = [
   "HTML5",
   "CSS3",
   "MongoDB",
+  "Git",
+  "GitHub",
+  "Postman",
+  "Linux",
   "Prettier",
   "ESLint",
   "Testing Library",
@@ -29,7 +33,7 @@ const formations = [
   {
     icon: Code,
     title: "Engenharia de Software",
-    institution: "Uniftec",
+    institution: "FSG",
     status: "Em andamento",
   },
   {

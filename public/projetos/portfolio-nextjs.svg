@@ -1,0 +1,11 @@
+<svg width="400" height="240" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="240" fill="url(#gradient4)"/>
+<defs>
+<linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#000000"/>
+<stop offset="100%" stop-color="#333333"/>
+</linearGradient>
+</defs>
+<text x="200" y="100" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Portfólio</text>
+<text x="200" y="130" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">Next.js</text>
+</svg>

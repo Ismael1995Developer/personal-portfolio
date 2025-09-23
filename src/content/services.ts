@@ -1,5 +1,5 @@
 export const services = {
-  loja: [
+  desenvolvimento: [
     {
       slug: "lp-essencial",
       titulo: "Landing Page Essencial",
@@ -71,7 +71,7 @@ export const services = {
   ],
   engenharia: [
     {
-      slug: "projeto-fv",
+      slug: "projeto-fv Fast Track",
       titulo: "Projeto Fotovoltaico",
       descricao: "Dimensionamento, memorial, ART e homologação.",
       features: [
@@ -81,10 +81,10 @@ export const services = {
         "ART (Anotação de Responsabilidade Técnica)",
         "Documentação para homologação",
       ],
-      preco: "A partir de R$ 800",
+      preco: "A partir de R$ 499,00",
     },
     {
-      slug: "projeto-eletrico",
+      slug: "projeto-eletrico Residência compacta (até 80 m²)",
       titulo: "Projeto Elétrico",
       descricao: "Projeto elétrico com conformidade normativa.",
       features: [
@@ -94,7 +94,7 @@ export const services = {
         "Esquemas unifilares",
         "Especificação de materiais",
       ],
-      preco: "A partir de R$ 600",
+      preco: "A partir de R$ 1200,00 ",
     },
   ],
 };

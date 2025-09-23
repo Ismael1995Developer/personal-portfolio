@@ -23,7 +23,11 @@ export function Projects() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project) => (
-            <Card key={project.slug} hover className="overflow-hidden">
+            <Card
+              key={project.slug}
+              hover
+              className="overflow-hidden flex flex-col h-full"
+            >
               <CardHeader className="pb-4">
                 <div className="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
                   {project.imagem ? (
@@ -50,7 +54,7 @@ export function Projects() {
                 </p>
               </CardHeader>
 
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 flex flex-col flex-grow">
                 {/* Stack */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.stack.map((tech) => (
@@ -70,7 +74,7 @@ export function Projects() {
                 )}
 
                 {/* Links */}
-                <div className="flex gap-2">
+                <div className="flex gap-2 mt-auto">
                   {project.github && (
                     <Button
                       variant="outline"

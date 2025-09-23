@@ -147,7 +147,7 @@ export function Contact() {
                       id="telefone"
                       {...register("telefone")}
                       className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white"
-                      placeholder="(54) 99961-487"
+                      placeholder="(xx) xxxxx-xxxx"
                     />
                   </div>
 
