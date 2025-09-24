@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
   images: {
-    domains: ["ismael-correia.dev"],
+    domains: ["ismael-correia.dev", "personal-portfolio-topaz-eight.vercel.app"],
     formats: ["image/webp", "image/avif"],
   },
   typescript: {
