@@ -1,10 +1,10 @@
 import { type Metadata } from "next";
 
 export const baseMetadata: Metadata = {
-  metadataBase: new URL("https://ismael-correia.dev"),
+  metadataBase: new URL("https://personal-portfolio-topaz-eight.vercel.app/"),
   title: "José Ismael Correia — Desenvolvedor Front-end & Engenheiro",
   description:
-    "Desenvolvedor Front-end especializado em JavaScript, TypeScript, React e Next.js. Serviços: Landing Pages, Manutenção de Sites, Marketing Digital (Google/Meta Ads) e Projetos Fotovoltaicos/Elétricos.",
+    "Desenvolvedor Front-end em JavaScript, TypeScript, React e Next.js em Caxias do Sul, RS. Serviços: Landing Pages, Manutenção de Sites, Marketing Digital (Google/Meta Ads) e Projetos Fotovoltaicos/Elétricos.",
   keywords: [
     "desenvolvedor front-end",
     "JavaScript",
@@ -20,17 +20,45 @@ export const baseMetadata: Metadata = {
     "desenvolvimento web",
     "SEO",
     "performance web",
+    "Caxias do Sul",
+    "Rio Grande do Sul",
+    "RS",
+    "Brasil",
+    "desenvolvedor web Caxias do Sul",
+    "programador Caxias do Sul",
+    "freelancer Caxias do Sul",
   ],
   authors: [{ name: "José Ismael Correia" }],
   creator: "José Ismael Correia",
   publisher: "José Ismael Correia",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/faicon.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/faicon192.png", sizes: "192x192", type: "image/png" }],
+    other: [
+      {
+        rel: "icon",
+        url: "/faicon.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        rel: "icon",
+        url: "/faicon192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://ismael-correia.dev",
+    url: "https://personal-portfolio-topaz-eight.vercel.app/",
     title: "José Ismael Correia — Desenvolvedor Front-end & Engenheiro",
     description:
-      "Desenvolvedor Front-end especializado em JavaScript, TypeScript, React e Next.js. Serviços: Landing Pages, Manutenção de Sites, Marketing Digital e Projetos Fotovoltaicos/Elétricos.",
+      "Desenvolvedor Front-end em JavaScript, TypeScript, React e Next.js em Caxias do Sul, RS. Serviços: Landing Pages, Manutenção de Sites, Marketing Digital e Projetos Fotovoltaicos/Elétricos.",
     siteName: "José Ismael Correia - Portfólio",
     images: [
       {
@@ -45,7 +73,7 @@ export const baseMetadata: Metadata = {
     card: "summary_large_image",
     title: "José Ismael Correia — Desenvolvedor Front-end & Engenheiro",
     description:
-      "Desenvolvedor Front-end especializado em JavaScript, TypeScript, React e Next.js. Serviços: Landing Pages, Manutenção de Sites, Marketing Digital e Projetos Fotovoltaicos/Elétricos.",
+      "Desenvolvedor Front-end em JavaScript, TypeScript, React e Next.js em Caxias do Sul, RS. Serviços: Landing Pages, Manutenção de Sites, Marketing Digital e Projetos Fotovoltaicos/Elétricos.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -70,11 +98,20 @@ export const structuredData = {
   name: "José Ismael Correia",
   jobTitle: "Desenvolvedor Front-end & Engenheiro",
   description:
-    "Desenvolvedor Front-end especializado em JavaScript, TypeScript, React e Next.js. Também atuo com Marketing Digital e Projetos Fotovoltaicos/Elétricos.",
-  url: "https://ismael-correia.dev",
+    "Desenvolvedor Front-end em JavaScript, TypeScript, React e Next.js. Também atuo com Marketing Digital e Projetos Fotovoltaicos/Elétricos em Caxias do Sul, RS.",
+  url: "https://personal-portfolio-topaz-eight.vercel.app/",
+  email: "ismael1995internacional.com.br",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Rua Henrique Leonard, 645",
+    addressLocality: "Caxias do Sul",
+    addressRegion: "Rio Grande do Sul",
+    addressCountry: "BR",
+    postalCode: "95020-000",
+  },
   sameAs: [
-    "https://github.com/ismael-correia",
-    "https://linkedin.com/in/ismael-correia",
+    "https://github.com/Ismael1995Developer",
+    "https://www.linkedin.com/in/joseismaelcorreia/",
   ],
   knowsAbout: [
     "JavaScript",
@@ -96,6 +133,23 @@ export const structuredData = {
     name: "Desenvolvedor Front-end",
     description:
       "Desenvolvimento de aplicações web modernas com foco em performance e conversão",
+    occupationLocation: {
+      "@type": "City",
+      name: "Caxias do Sul",
+      addressRegion: "Rio Grande do Sul",
+      addressCountry: "BR",
+    },
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "Freelancer",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Rua Henrique Leonard, 645",
+      addressLocality: "Caxias do Sul",
+      addressRegion: "Rio Grande do Sul",
+      addressCountry: "BR",
+    },
   },
   alumniOf: [
     {

@@ -1,0 +1,25 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+    José Ismael Correia -- Desenvolvedor Front-end -- ismael1995internacional.com.br
+    Site: https://personal-portfolio-topaz-eight.vercel.app/
+    Localização: Caxias do Sul, Rio Grande do Sul, Brasil
+    Endereço: Rua Henrique Leonard, 645, Caxias do Sul, RS
+
+# THANKS
+    Uniftec - Análise e Desenvolvimento de Sistemas
+    Uniftec - Eletrotécnica
+
+# TECHNOLOGY COLOPHON
+    HTML5, CSS3, JavaScript, TypeScript
+    React, Next.js, Node.js
+    Tailwind CSS, Framer Motion
+    Git, GitHub, Vercel
+    Google Analytics, SEO
+
+# SITE
+    Last update: 2025/01/27
+    Language: Portuguese (Brazil)
+    Doctype: HTML5
+    IDE: Visual Studio Code

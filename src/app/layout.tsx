@@ -21,6 +21,19 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={inter.variable}>
       <head>
+        {/* Favicon e ícones */}
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/faicon.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/faicon192.png" sizes="192x192" />
+        <link rel="manifest" href="/manifest.json" />
+
+        {/* Meta tags adicionais para SEO */}
+        <meta name="theme-color" content="#000000" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileImage" content="/faicon192.png" />
+        <link rel="author" href="/humans.txt" />
+        <link rel="security" href="/.well-known/security.txt" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -1,0 +1,32 @@
+{
+  "name": "José Ismael Correia - Desenvolvedor Front-end",
+  "short_name": "Ismael Correia",
+  "description": "Desenvolvedor Front-end especializado em JavaScript, TypeScript, React e Next.js. Serviços: Landing Pages, Manutenção de Sites, Marketing Digital e Projetos Fotovoltaicos/Elétricos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/faicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/faicon192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "pt-BR"
+}

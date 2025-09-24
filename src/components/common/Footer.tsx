@@ -36,8 +36,8 @@ export function Footer() {
               <span className="text-xl font-bold">José Ismael</span>
             </Link>
             <p className="text-zinc-400 mb-6 max-w-sm">
-              Desenvolvedor Front-end especializado em JavaScript, TypeScript,
-              React e Next.js. Também atuo com Marketing Digital e Projetos
+              Desenvolvedor Front-end em JavaScript, TypeScript, React e
+              Next.js. Também atuo com Marketing Digital e Projetos
               Fotovoltaicos/Elétricos.
             </p>
             <div className="flex space-x-4">

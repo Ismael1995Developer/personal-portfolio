@@ -60,7 +60,7 @@ export const projects: Project[] = [
       "TypeScript",
       "SEO",
     ],
-    imagem: "/projetos/emagreca-comigo.svg",
+    imagem: "/projetos/emagreca-comigo.webp",
     demo: "https://www.emagrecacomigo.com.br",
     resultado: "Taxa de conversão 15% e alta retenção",
   },

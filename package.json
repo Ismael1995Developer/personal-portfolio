@@ -2,6 +2,25 @@
   "name": "personal-portfolio",
   "version": "1.1.2",
   "private": true,
+  "author": {
+    "name": "José Ismael Correia",
+    "email": "ismael1995internacional.com.br",
+    "url": "https://personal-portfolio-topaz-eight.vercel.app/"
+  },
+  "description": "Portfólio profissional de José Ismael Correia - Desenvolvedor Front-end em JavaScript, TypeScript, React e Next.js",
+  "keywords": [
+    "desenvolvedor front-end",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "landing page",
+    "marketing digital",
+    "Caxias do Sul",
+    "Rio Grande do Sul",
+    "Brasil"
+  ],
+  "homepage": "https://personal-portfolio-topaz-eight.vercel.app/",
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
@@ -31,6 +50,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.63.0",
+    "react-icons": "^5.5.0",
     "tailwind-merge": "^3.3.1",
     "zod": "^4.1.11"
   },

@@ -32,11 +32,6 @@ export function Hero() {
               {/* Subheadline */}
               <div className="text-lg sm:text-xl lg:text-2xl text-zinc-200 mb-12 leading-relaxed animate-fade-in-up">
                 <p className="mb-6">
-                  Sou{" "}
-                  <strong className="text-white">José Ismael Correia</strong>,
-                  desenvolvedor Front-end.
-                </p>
-                <p className="mb-6">
                   Trabalho com{" "}
                   <strong className="text-amber-400">JavaScript</strong>,{" "}
                   <strong className="text-amber-400">TypeScript</strong>,{" "}

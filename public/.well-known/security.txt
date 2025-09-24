@@ -1,0 +1,4 @@
+Contact: mailto:ismael1995internacional.com.br
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: pt, en
+Canonical: https://personal-portfolio-topaz-eight.vercel.app/.well-known/security.txt

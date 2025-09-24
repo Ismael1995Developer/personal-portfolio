@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
 
+# Sitemaps
 Sitemap: https://ismael-correia.dev/sitemap.xml
+
+# Crawl-delay para evitar sobrecarga
+Crawl-delay: 1
