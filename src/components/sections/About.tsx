@@ -3,11 +3,11 @@ import { Section } from "@/components/common/Section";
 import { Badge } from "@/components/common/Badge";
 import { Card } from "@/components/common/Card";
 import { TechIcon } from "@/components/common/TechIcon";
+import Image from "next/image";
 import {
   GraduationCap,
   Code,
   Wrench,
-  Lightbulb,
   Zap,
   Target,
   Building2,
@@ -167,10 +167,13 @@ export function About() {
           <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8 sm:p-12 lg:p-16 max-w-5xl mx-auto">
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 mb-6">
-                <img
+                <Image
                   src="/frontlogo.png"
                   alt="José Ismael Correia - Logo"
+                  width={80}
+                  height={80}
                   className="w-20 h-20 rounded-full object-cover shadow-lg"
+                  priority
                 />
               </div>
 
