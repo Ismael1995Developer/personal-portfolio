@@ -24,7 +24,7 @@ export const projects: Project[] = [
       "TypeScript",
       "SEO",
     ],
-    imagem: "/projetos/ultratech-sistemas.PNG",
+    imagem: "/projetos/ultratech-sistemas.png",
     demo: "https://www.ultratechsistemas.com.br",
     resultado: "Sistema em produção com 50+ usuários ativos",
   },
