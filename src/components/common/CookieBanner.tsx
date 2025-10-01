@@ -22,10 +22,13 @@ export function CookieBanner() {
   });
 
   useEffect(() => {
-    // Verificar se o usuário já fez uma escolha
-    const cookieConsent = localStorage.getItem("cookieConsent");
-    if (!cookieConsent) {
-      setIsVisible(true);
+    // Verificar se estamos no cliente antes de acessar localStorage
+    if (typeof window !== "undefined") {
+      // Verificar se o usuário já fez uma escolha
+      const cookieConsent = localStorage.getItem("cookieConsent");
+      if (!cookieConsent) {
+        setIsVisible(true);
+      }
     }
   }, []);
 
@@ -62,8 +65,10 @@ export function CookieBanner() {
   };
 
   const savePreferences = (prefs: CookiePreferences) => {
-    localStorage.setItem("cookieConsent", JSON.stringify(prefs));
-    localStorage.setItem("cookieConsentDate", new Date().toISOString());
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cookieConsent", JSON.stringify(prefs));
+      localStorage.setItem("cookieConsentDate", new Date().toISOString());
+    }
 
     // Aqui você pode implementar a lógica para ativar/desativar cookies
     // baseado nas preferências do usuário

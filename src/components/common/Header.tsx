@@ -19,10 +19,12 @@ export function Header() {
   const [userName, setUserName] = useState<string | null>(null);
 
   useEffect(() => {
-    // Carregar nome do usuário do localStorage
-    const savedName = localStorage.getItem("userName");
-    if (savedName) {
-      setUserName(savedName);
+    // Verificar se estamos no cliente antes de acessar localStorage
+    if (typeof window !== "undefined") {
+      const savedName = localStorage.getItem("userName");
+      if (savedName) {
+        setUserName(savedName);
+      }
     }
   }, []);
 

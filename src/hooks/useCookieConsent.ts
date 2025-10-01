@@ -19,29 +19,36 @@ export function useCookieConsent() {
   const [hasConsent, setHasConsent] = useState(false);
 
   useEffect(() => {
-    // Carregar preferências salvas
-    const savedConsent = localStorage.getItem("cookieConsent");
-    if (savedConsent) {
-      try {
-        const parsedPreferences = JSON.parse(savedConsent);
-        setPreferences(parsedPreferences);
-        setHasConsent(true);
-      } catch (error) {
-        console.error("Erro ao carregar preferências de cookies:", error);
+    // Verificar se estamos no cliente antes de acessar localStorage
+    if (typeof window !== "undefined") {
+      // Carregar preferências salvas
+      const savedConsent = localStorage.getItem("cookieConsent");
+      if (savedConsent) {
+        try {
+          const parsedPreferences = JSON.parse(savedConsent);
+          setPreferences(parsedPreferences);
+          setHasConsent(true);
+        } catch (error) {
+          console.error("Erro ao carregar preferências de cookies:", error);
+        }
       }
     }
   }, []);
 
   const updatePreferences = (newPreferences: CookiePreferences) => {
     setPreferences(newPreferences);
-    localStorage.setItem("cookieConsent", JSON.stringify(newPreferences));
-    localStorage.setItem("cookieConsentDate", new Date().toISOString());
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cookieConsent", JSON.stringify(newPreferences));
+      localStorage.setItem("cookieConsentDate", new Date().toISOString());
+    }
     setHasConsent(true);
   };
 
   const clearConsent = () => {
-    localStorage.removeItem("cookieConsent");
-    localStorage.removeItem("cookieConsentDate");
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("cookieConsent");
+      localStorage.removeItem("cookieConsentDate");
+    }
     setPreferences({
       necessary: true,
       analytics: false,

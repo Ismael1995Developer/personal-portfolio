@@ -12,37 +12,44 @@ export function WelcomePopup() {
   const [showCouponPopup, setShowCouponPopup] = useState(false);
 
   useEffect(() => {
-    // Verificar se já existe um nome salvo no localStorage
-    const savedName = localStorage.getItem("userName");
-    const hasVisited = localStorage.getItem("hasVisited");
+    // Verificar se estamos no cliente antes de acessar localStorage
+    if (typeof window !== "undefined") {
+      // Verificar se já existe um nome salvo no localStorage
+      const savedName = localStorage.getItem("userName");
+      const hasVisited = localStorage.getItem("hasVisited");
 
-    if (savedName) {
-      setIsReturning(true);
-      setName(savedName);
-    }
+      if (savedName) {
+        setIsReturning(true);
+        setName(savedName);
+      }
 
-    // Mostrar popup apenas se não tiver visitado antes ou se for retorno
-    if (!hasVisited || savedName) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 1000); // Delay de 1 segundo para melhor UX
+      // Mostrar popup apenas se não tiver visitado antes ou se for retorno
+      if (!hasVisited || savedName) {
+        const timer = setTimeout(() => {
+          setIsOpen(true);
+        }, 1000); // Delay de 1 segundo para melhor UX
 
-      return () => clearTimeout(timer);
+        return () => clearTimeout(timer);
+      }
     }
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (name.trim()) {
-      localStorage.setItem("userName", name.trim());
-      localStorage.setItem("hasVisited", "true");
+      if (typeof window !== "undefined") {
+        localStorage.setItem("userName", name.trim());
+        localStorage.setItem("hasVisited", "true");
+      }
       setIsOpen(false);
     }
   };
 
   const handleClose = () => {
     setIsOpen(false);
-    localStorage.setItem("hasVisited", "true");
+    if (typeof window !== "undefined") {
+      localStorage.setItem("hasVisited", "true");
+    }
   };
 
   const handleCouponUse = (code: string, discount: number) => {
