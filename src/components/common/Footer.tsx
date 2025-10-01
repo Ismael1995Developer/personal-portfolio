@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Code2, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
-import { Button } from "./Button";
+import { Code2, Github, Linkedin, Mail } from "lucide-react";
 
 const footerLinks = {
   servicos: [
@@ -103,35 +102,12 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contato e CTA */}
+          {/* Contato */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Vamos conversar?</h3>
             <p className="text-zinc-400 mb-6">
               Pronto para começar seu projeto? Entre em contato agora mesmo!
             </p>
-            <div className="space-y-3">
-              <Button variant="gradient" size="sm" className="w-full" asChild>
-                <a href="#contato">
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  Solicitar Orçamento
-                </a>
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full border-zinc-600 text-zinc-300 hover:bg-zinc-800"
-                asChild
-              >
-                <a
-                  href="https://wa.me/555499961487"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  WhatsApp
-                </a>
-              </Button>
-            </div>
           </div>
         </div>
 

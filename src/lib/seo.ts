@@ -1,7 +1,7 @@
 import { type Metadata } from "next";
 
 export const baseMetadata: Metadata = {
-  metadataBase: new URL("https://personal-portfolio-topaz-eight.vercel.app/"),
+  metadataBase: new URL("https://ismael-correia.dev/"),
   title: "José Ismael Correia — Desenvolvedor Front-end & Engenheiro",
   description:
     "Desenvolvedor Front-end em JavaScript, TypeScript, React e Next.js em Caxias do Sul, RS. Serviços: Landing Pages, Manutenção de Sites, Marketing Digital (Google/Meta Ads) e Projetos Fotovoltaicos/Elétricos.",
@@ -55,7 +55,7 @@ export const baseMetadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://personal-portfolio-topaz-eight.vercel.app/",
+    url: "https://ismael-correia.dev/",
     title: "José Ismael Correia — Desenvolvedor Front-end & Engenheiro",
     description:
       "Desenvolvedor Front-end em JavaScript, TypeScript, React e Next.js em Caxias do Sul, RS. Serviços: Landing Pages, Manutenção de Sites, Marketing Digital e Projetos Fotovoltaicos/Elétricos.",
@@ -99,7 +99,7 @@ export const structuredData = {
   jobTitle: "Desenvolvedor Front-end & Engenheiro",
   description:
     "Desenvolvedor Front-end em JavaScript, TypeScript, React e Next.js. Também atuo com Marketing Digital e Projetos Fotovoltaicos/Elétricos em Caxias do Sul, RS.",
-  url: "https://personal-portfolio-topaz-eight.vercel.app/",
+  url: "https://ismael-correia.dev/",
   email: "ismael1995internacional.com.br",
   address: {
     "@type": "PostalAddress",

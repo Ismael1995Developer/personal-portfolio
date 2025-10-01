@@ -1,11 +1,13 @@
 import type { NextConfig } from "next";
+import withBundleAnalyzer from "@next/bundle-analyzer";
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
 
 const nextConfig: NextConfig = {
   images: {
-    domains: [
-      "ismael-correia.dev",
-      "personal-portfolio-topaz-eight.vercel.app",
-    ],
+    domains: ["ismael-correia.dev"],
     formats: ["image/webp", "image/avif"],
   },
   typescript: {
@@ -16,4 +18,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default bundleAnalyzer(nextConfig);

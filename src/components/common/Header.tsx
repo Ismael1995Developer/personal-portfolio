@@ -1,15 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Code2, MessageCircle, Mail } from "lucide-react";
-import { Button } from "./Button";
+import { Menu, X, Code2, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
   { name: "Sobre", href: "#sobre" },
   { name: "Projetos", href: "#projetos" },
-  { name: "Loja", href: "#loja" },
+  { name: "Loja", href: "/landing-page-personalizada" },
   { name: "Marketing", href: "#marketing" },
   { name: "Engenharia", href: "#engenharia" },
   { name: "Contato", href: "#contato" },
@@ -17,6 +16,15 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userName, setUserName] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Carregar nome do usuário do localStorage
+    const savedName = localStorage.getItem("userName");
+    if (savedName) {
+      setUserName(savedName);
+    }
+  }, []);
 
   return (
     <header className="fixed top-0 w-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-700 z-50">
@@ -45,26 +53,20 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-          </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex md:items-center md:space-x-4">
-            <Button variant="outline" size="sm" asChild>
-              <Link
-                href="https://wa.me/555499961487"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MessageCircle className="h-4 w-4 mr-2" />
-                WhatsApp
-              </Link>
-            </Button>
-            <Button variant="gradient" size="sm" asChild>
-              <Link href="#contato">
-                <Mail className="h-4 w-4 mr-2" />
-                Solicitar Orçamento
-              </Link>
-            </Button>
+            {/* Mensagem de Boas-vindas ao lado do contato */}
+            {userName && (
+              <div className="flex items-center space-x-2 text-sm text-zinc-600 dark:text-zinc-400">
+                <Heart className="h-4 w-4 text-pink-500" />
+                <span>
+                  Olá,{" "}
+                  <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+                    {userName}
+                  </span>
+                  !
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -97,34 +99,6 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <div className="px-3 py-2 space-y-2">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full justify-center"
-                asChild
-              >
-                <Link
-                  href="https://wa.me/555499961487"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  WhatsApp
-                </Link>
-              </Button>
-              <Button
-                variant="gradient"
-                size="sm"
-                className="w-full justify-center"
-                asChild
-              >
-                <Link href="#contato">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Solicitar Orçamento
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       </nav>

@@ -6,6 +6,7 @@ import { Section } from "@/components/common/Section";
 import { Card, CardContent, CardHeader } from "@/components/common/Card";
 import { Button } from "@/components/common/Button";
 import PriceTablePopup from "@/components/common/PriceTablePopup";
+import { TechIcons } from "@/components/common/TechIcons";
 import { services } from "@/content/services";
 import {
   Check,
@@ -14,10 +15,25 @@ import {
   Wrench,
   MessageCircle,
   Calculator,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 export function Services() {
   const [isPriceTableOpen, setIsPriceTableOpen] = useState(false);
+  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
+
+  const toggleExpanded = (serviceSlug: string) => {
+    setExpandedCards((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(serviceSlug)) {
+        newSet.delete(serviceSlug);
+      } else {
+        newSet.add(serviceSlug);
+      }
+      return newSet;
+    });
+  };
 
   return (
     <>
@@ -39,43 +55,117 @@ export function Services() {
 
           <div className="grid md:grid-cols-3 gap-10 mb-12">
             {services.desenvolvimento.map((service) => (
-              <Card key={service.slug} hover className="relative">
-                <CardHeader className="text-center pb-4">
+              <Card
+                key={service.slug}
+                hover
+                className="relative flex flex-col h-full"
+              >
+                <CardHeader className="text-center pb-4 relative">
+                  {/* Ícones das tecnologias posicionados acima do título */}
+                  {service.tecnologias && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                      <TechIcons technologies={service.tecnologias} />
+                    </div>
+                  )}
                   <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
                     {service.titulo}
                   </h3>
                   <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
                     {service.descricao}
                   </p>
-                  <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                    {service.preco}
+
+                  {/* Preço com promoção */}
+                  <div className="text-center mb-3">
+                    {service.precoOriginal &&
+                      service.precoOriginal !== service.preco && (
+                        <div className="text-sm text-zinc-500 dark:text-zinc-400 line-through mb-1">
+                          {service.precoOriginal}
+                        </div>
+                      )}
+                    {service.precoParcelado ? (
+                      <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">
+                        {service.precoParcelado}
+                      </div>
+                    ) : (
+                      <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">
+                        {service.preco}
+                      </div>
+                    )}
+                    {service.condicaoPagamento && (
+                      <div className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
+                        {service.condicaoPagamento}
+                      </div>
+                    )}
+                    {service.precoParcelado && (
+                      <div className="text-sm text-zinc-500 dark:text-zinc-400">
+                        Valor à vista: {service.preco}
+                      </div>
+                    )}
                   </div>
                 </CardHeader>
 
-                <CardContent className="pt-0">
-                  <ul className="space-y-3 mb-6">
-                    {service.features.map((feature, index) => (
-                      <li key={index} className="flex items-start space-x-3">
-                        <Check className="h-5 w-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                <CardContent className="pt-0 flex flex-col flex-grow">
+                  {/* Features com expansão */}
+                  <div className="mb-6 flex-grow">
+                    <ul className="space-y-3">
+                      {service.features.slice(0, 5).map((feature, index) => (
+                        <li key={index} className="flex items-start space-x-3">
+                          <Check className="h-5 w-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
 
-                  <div className="space-y-2">
+                      {service.features.length > 5 && (
+                        <>
+                          {expandedCards.has(service.slug) && (
+                            <>
+                              {service.features
+                                .slice(5)
+                                .map((feature, index) => (
+                                  <li
+                                    key={index + 5}
+                                    className="flex items-start space-x-3"
+                                  >
+                                    <Check className="h-5 w-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                                    <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                                      {feature}
+                                    </span>
+                                  </li>
+                                ))}
+                            </>
+                          )}
+
+                          <button
+                            onClick={() => toggleExpanded(service.slug)}
+                            className="flex items-center space-x-2 text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+                          >
+                            <span>
+                              {expandedCards.has(service.slug)
+                                ? "Ver menos"
+                                : `Ver mais ${service.features.length - 5} itens`}
+                            </span>
+                            {expandedCards.has(service.slug) ? (
+                              <ChevronUp className="h-4 w-4" />
+                            ) : (
+                              <ChevronDown className="h-4 w-4" />
+                            )}
+                          </button>
+                        </>
+                      )}
+                    </ul>
+                  </div>
+
+                  <div className="mt-auto">
                     <Button variant="primary" className="w-full" asChild>
-                      <a href="#contato">Contratar Plano</a>
-                    </Button>
-                    <Button variant="outline" className="w-full" asChild>
                       <a
-                        href="https://wa.me/555499961487"
+                        href={`https://wa.me/555499961487?text=Olá! Gostaria de saber mais sobre o ${service.titulo} - ${service.descricao} - Preço: ${service.preco}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <MessageCircle className="h-4 w-4 mr-2" />
-                        Falar no WhatsApp
+                        Quero este projeto!
                       </a>
                     </Button>
                   </div>
@@ -128,34 +218,17 @@ export function Services() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button
-                      variant="gradient"
-                      size="lg"
-                      className="text-lg px-8 py-4"
-                      asChild
-                    >
-                      <a href="/landing-page-personalizada">
-                        <Target className="h-5 w-5 mr-2" />
-                        Personalizar Projeto
-                      </a>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="text-lg px-8 py-4"
-                      asChild
-                    >
-                      <a
-                        href="https://wa.me/555499961487"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <MessageCircle className="h-5 w-5 mr-2" />
-                        Falar no WhatsApp
-                      </a>
-                    </Button>
-                  </div>
+                  <Button
+                    variant="gradient"
+                    size="lg"
+                    className="text-lg px-8 py-4 w-full sm:w-auto"
+                    asChild
+                  >
+                    <a href="/landing-page-personalizada">
+                      <Target className="h-5 w-5 mr-2" />
+                      Personalizar Projeto
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -181,7 +254,11 @@ export function Services() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {services.marketing.map((service) => (
-              <Card key={service.slug} hover className="relative">
+              <Card
+                key={service.slug}
+                hover
+                className="relative flex flex-col h-full"
+              >
                 <CardHeader className="text-center pb-4">
                   <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
                     {service.titulo}
@@ -189,13 +266,49 @@ export function Services() {
                   <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
                     {service.descricao}
                   </p>
-                  <div className="text-2xl font-bold text-amber-600 dark:text-amber-400">
-                    {service.preco}
+
+                  {/* Preço com promoção */}
+                  <div className="text-center mb-3">
+                    {service.precoOriginal &&
+                      service.precoOriginal !== service.preco && (
+                        <div className="text-sm text-zinc-500 dark:text-zinc-400 line-through mb-1">
+                          {service.precoOriginal}
+                        </div>
+                      )}
+                    {service.precoParcelado ? (
+                      <div className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-1">
+                        {service.precoParcelado}
+                      </div>
+                    ) : (
+                      <div className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-1">
+                        {service.preco}
+                      </div>
+                    )}
+                    {service.condicaoPagamento && (
+                      <div className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
+                        {service.condicaoPagamento}
+                      </div>
+                    )}
+                    {service.precoParcelado && (
+                      <div className="text-sm text-zinc-500 dark:text-zinc-400">
+                        Valor à vista: {service.preco}
+                      </div>
+                    )}
+                    {service.descontoAnual && (
+                      <div className="mt-2 p-2 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                        <div className="text-sm font-semibold text-green-700 dark:text-green-300">
+                          {service.descontoAnual}
+                        </div>
+                        <div className="text-xs text-green-600 dark:text-green-400">
+                          Pagamento anual: {service.precoAnual}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </CardHeader>
 
-                <CardContent className="pt-0">
-                  <ul className="space-y-3 mb-6">
+                <CardContent className="pt-0 flex flex-col flex-grow">
+                  <ul className="space-y-3 mb-6 flex-grow">
                     {service.features.map((feature, index) => (
                       <li key={index} className="flex items-start space-x-3">
                         <Check className="h-5 w-5 text-emerald-500 flex-shrink-0 mt-0.5" />
@@ -206,9 +319,18 @@ export function Services() {
                     ))}
                   </ul>
 
-                  <Button variant="gradient" className="w-full" asChild>
-                    <a href="#contato">Solicitar Proposta</a>
-                  </Button>
+                  <div className="mt-auto">
+                    <Button variant="gradient" className="w-full" asChild>
+                      <a
+                        href={`https://wa.me/555499961487?text=Olá! Gostaria de saber mais sobre o ${service.titulo} - ${service.descricao} - Preço: ${service.preco}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MessageCircle className="h-4 w-4 mr-2" />
+                        Vamos conversar!
+                      </a>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -234,7 +356,7 @@ export function Services() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Primeiro Card - Projeto Fotovoltaico */}
-            <Card hover className="relative">
+            <Card hover className="relative flex flex-col h-full">
               <CardHeader className="text-center pb-4">
                 <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
                   {services.engenharia[0].titulo}
@@ -247,8 +369,8 @@ export function Services() {
                 </div>
               </CardHeader>
 
-              <CardContent className="pt-0">
-                <ul className="space-y-3 mb-6">
+              <CardContent className="pt-0 flex flex-col flex-grow">
+                <ul className="space-y-3 mb-6 flex-grow">
                   {services.engenharia[0].features.map(
                     (feature, featureIndex) => (
                       <li
@@ -264,9 +386,18 @@ export function Services() {
                   )}
                 </ul>
 
-                <Button variant="outline" className="w-full" asChild>
-                  <a href="#contato">Orçar Projeto</a>
-                </Button>
+                <div className="mt-auto">
+                  <Button variant="outline" className="w-full" asChild>
+                    <a
+                      href={`https://wa.me/555499961487?text=Olá! Gostaria de saber mais sobre o ${services.engenharia[0].titulo} - ${services.engenharia[0].descricao} - Preço: ${services.engenharia[0].preco}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="h-4 w-4 mr-2" />
+                      Quero orçar!
+                    </a>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
@@ -300,7 +431,7 @@ export function Services() {
             </Card>
 
             {/* Segundo Card - Projeto Elétrico */}
-            <Card hover className="relative">
+            <Card hover className="relative flex flex-col h-full">
               <CardHeader className="text-center pb-4">
                 <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
                   {services.engenharia[1].titulo}
@@ -313,8 +444,8 @@ export function Services() {
                 </div>
               </CardHeader>
 
-              <CardContent className="pt-0">
-                <ul className="space-y-3 mb-6">
+              <CardContent className="pt-0 flex flex-col flex-grow">
+                <ul className="space-y-3 mb-6 flex-grow">
                   {services.engenharia[1].features.map(
                     (feature, featureIndex) => (
                       <li
@@ -330,9 +461,18 @@ export function Services() {
                   )}
                 </ul>
 
-                <Button variant="outline" className="w-full" asChild>
-                  <a href="#contato">Orçar Projeto</a>
-                </Button>
+                <div className="mt-auto">
+                  <Button variant="outline" className="w-full" asChild>
+                    <a
+                      href={`https://wa.me/555499961487?text=Olá! Gostaria de saber mais sobre o ${services.engenharia[1].titulo} - ${services.engenharia[1].descricao} - Preço: ${services.engenharia[1].preco}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="h-4 w-4 mr-2" />
+                      Quero orçar!
+                    </a>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>

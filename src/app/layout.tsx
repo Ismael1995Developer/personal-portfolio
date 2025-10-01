@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
-import { baseMetadata, structuredData } from "@/lib/seo";
+import { baseMetadata } from "@/lib/seo";
 import { GA_TRACKING_ID } from "@/lib/analytics";
+import { StructuredData } from "@/components/common/StructuredData";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,15 +34,9 @@ export default function RootLayout({
         <meta name="msapplication-TileImage" content="/faicon192.png" />
         <link rel="author" href="/humans.txt" />
         <link rel="security" href="/.well-known/security.txt" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
       </head>
       <body className="font-sans antialiased">
+        <StructuredData />
         {children}
         <GoogleAnalytics gaId={GA_TRACKING_ID} />
       </body>

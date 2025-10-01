@@ -3,7 +3,7 @@
 
 # TEAM
     José Ismael Correia -- Desenvolvedor Front-end -- ismael1995internacional.com.br
-    Site: https://personal-portfolio-topaz-eight.vercel.app/
+    Site: https://ismael-correia.dev/
     Localização: Caxias do Sul, Rio Grande do Sul, Brasil
     Endereço: Rua Henrique Leonard, 645, Caxias do Sul, RS
 
