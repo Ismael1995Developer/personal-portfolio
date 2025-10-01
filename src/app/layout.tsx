@@ -6,6 +6,7 @@ import { baseMetadata } from "@/lib/seo";
 import { GA_TRACKING_ID } from "@/lib/analytics";
 import { StructuredData } from "@/components/common/StructuredData";
 import { CookieBanner } from "@/components/common/CookieBanner";
+import { WelcomePopup } from "@/components/common/WelcomePopup";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
         {children}
         <GoogleAnalytics gaId={GA_TRACKING_ID} />
         <CookieBanner />
+        <WelcomePopup />
       </body>
     </html>
   );
