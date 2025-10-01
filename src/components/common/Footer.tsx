@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Code2, Github, Linkedin, Mail } from "lucide-react";
+import { CookiePreferences } from "./CookiePreferences";
 
 const footerLinks = {
   servicos: [
@@ -18,6 +19,7 @@ const footerLinks = {
   legal: [
     { name: "Política de Privacidade", href: "/politica-privacidade" },
     { name: "Termos de Uso", href: "/termos-de-uso" },
+    { name: "Política de Cookies", href: "/politica-cookies" },
   ],
 };
 
@@ -118,16 +120,19 @@ export function Footer() {
               © {new Date().getFullYear()} José Ismael Correia. Todos os
               direitos reservados.
             </div>
-            <div className="flex space-x-6">
-              {footerLinks.legal.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-zinc-400 hover:text-white text-sm transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex space-x-6">
+                {footerLinks.legal.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-zinc-400 hover:text-white text-sm transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+              <CookiePreferences />
             </div>
           </div>
         </div>

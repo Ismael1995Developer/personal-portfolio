@@ -3,11 +3,13 @@
 import { useState, useEffect } from "react";
 import { User, Heart } from "lucide-react";
 import { Button } from "./Button";
+import { CouponPopup } from "./CouponPopup";
 
 export function WelcomePopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const [isReturning, setIsReturning] = useState(false);
+  const [showCouponPopup, setShowCouponPopup] = useState(false);
 
   useEffect(() => {
     // Verificar se já existe um nome salvo no localStorage
@@ -41,6 +43,26 @@ export function WelcomePopup() {
   const handleClose = () => {
     setIsOpen(false);
     localStorage.setItem("hasVisited", "true");
+  };
+
+  const handleCouponUse = (code: string, discount: number) => {
+    setShowCouponPopup(false);
+
+    // Redirecionar para WhatsApp com o cupom
+    const whatsappMessage = `Olá! Retornei ao seu site e ganhei um cupom de desconto de ${discount}%! 🎉
+
+Código do cupom: ${code}
+
+Gostaria de usar este desconto na minha Landing Page. Podemos conversar sobre o projeto?`;
+
+    window.open(
+      `https://wa.me/5554999961487?text=${encodeURIComponent(whatsappMessage)}`,
+      "_blank",
+    );
+  };
+
+  const handleConversarClick = () => {
+    setShowCouponPopup(true);
   };
 
   if (!isOpen) return null;
@@ -107,7 +129,7 @@ export function WelcomePopup() {
               </Button>
               <Button
                 variant="gradient"
-                onClick={() => (window.location.href = "#contato")}
+                onClick={handleConversarClick}
                 className="flex-1"
               >
                 Vamos conversar!
@@ -116,6 +138,13 @@ export function WelcomePopup() {
           )}
         </div>
       </div>
+
+      {/* Popup de Cupom */}
+      <CouponPopup
+        isOpen={showCouponPopup}
+        onClose={() => setShowCouponPopup(false)}
+        onUseCoupon={handleCouponUse}
+      />
     </div>
   );
 }
